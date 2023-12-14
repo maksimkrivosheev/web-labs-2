@@ -11,12 +11,18 @@ lab5 = Blueprint("lab5",__name__)
 
 def dbConnect():
     conn = psycopg2.connect(
-        host='127.0.0.1',
-        database='knowledge_base_for_vlad',
-        user='postgres',
-        password='postgres'
+    host="127.0.0.1",
+    database="knowledge_base",
+    user="postgres",
+    port="5433"
     )
-    return conn
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM user;")
+    result = cur.fetchall()
+    cur.close()
+    conn.close()
+    print(result)
+    return render_template("users.html", result=result )
 
 def dbClose(cur, con):
     cur.close()
