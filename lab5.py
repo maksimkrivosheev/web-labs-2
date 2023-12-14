@@ -41,6 +41,21 @@ def main():
 
     return render_template('lab5.html')
 
+@lab5.route("/lab5/users")
+def users():
+    conn = psycopg2.connect(
+    host="127.0.0.1",
+    database="knowledge_base",
+    user="postgres",
+    port="5433"
+    )
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM user;")
+    result = cur.fetchall()
+    cur.close()
+    conn.close()
+    print(result)
+    return render_template("users.html", result=result )
 
 
 
@@ -79,7 +94,6 @@ def registerPage():
     conn.close()
 
     return redirect('/lab5/login5')
-
 
 
 
