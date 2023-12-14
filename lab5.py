@@ -17,7 +17,7 @@ def dbConnect():
         password='postgres'
     )
     return conn
-с
+
 def dbClose(cur, con):
     cur.close()
     con.close()
