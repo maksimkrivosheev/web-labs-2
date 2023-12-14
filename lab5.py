@@ -79,7 +79,7 @@ def registerPage():
 
 @lab5.route("/lab5/login5", methods=['GET','POST'])
 def loginPage():
-    errors = [];
+    errors = []
     if request.method == "GET":
         return render_template("login5.html", errors=errors)
     
