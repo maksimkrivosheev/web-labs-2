@@ -8,7 +8,7 @@ lab5 = Blueprint("lab5",__name__)
 
 
 
-
+@lab5.route("/lab5")
 def dbConnect():
     conn = psycopg2.connect(
     host="127.0.0.1",
@@ -28,18 +28,6 @@ def dbClose(cur, con):
     cur.close()
     con.close()
 
-@lab5.route("/lab5/")
-def main():
-    conn = dbConnect()
-    cur = conn.cursor()
-    cur.execute('select * from users;')
-    result = cur.fetchall()
-
-    print(result)
-
-    dbClose(cur, conn)
-
-    return render_template('lab5.html')
 
 @lab5.route("/lab5/users")
 def users():
