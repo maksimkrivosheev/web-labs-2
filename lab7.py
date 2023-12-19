@@ -1,9 +1,9 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask import Blueprint, render_template, request, make_response, redirect, session
 import psycopg2
-from db import db
+""" from db import db
 from db.models import users, articles
-from flask_login import login_user, login_required, current_user, logout_user
+from flask_login import login_user, login_required, current_user, logout_user """
 
 lab7 = Blueprint('lab7', __name__)
 
